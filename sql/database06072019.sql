@@ -72,7 +72,7 @@ CREATE TABLE `Contact` (
   `Message` text NOT NULL,
   PRIMARY KEY (`Id`),
   KEY `email` (`Email`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 DROP TABLE IF EXISTS `Gigs`;
