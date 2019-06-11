@@ -46,7 +46,12 @@
         <p><?php echo anchor('gig/'.$gig['GigID'] , 'Read More');?></p>
         <?php endforeach ?>
       </div>
-      
+     
+    <!-- 
+        The foreach ... endforeach loops of Type of Job, Company City and Company Name forms were revised to fix issue #194 on Github.
+         
+        Since issue #194 may have conflict with issue #232 and issue #234, if the fixes of #232 and issue #234 are needed to merge into this fix, please deleterevise the first form below. 
+    -->
     <div class="col-sm-6">
         <h2>Filter</h2>
         <form role="filter" method="post" action="gig/filter">
@@ -55,7 +60,7 @@
         <label>Type of Job: </label>
           <select name="GigOutline">
             <?php foreach ($gigOutlines as $gigOutline): ?>
-              <option value="<?=$gigOutline['GigOutline']?>"><?=$gigOutline['GigOutline'];?></option>
+              <option value="<?=$gigOutline['GigOutline']?>"><?=substr($gigOutline['GigOutline'], 0, 75);?></option>
             <?php endforeach ?>
             </select>        
             </div>

@@ -80,9 +80,14 @@ class Gig_model extends CI_Model {
     }#end getGigs()
 
 	/**
-	*  Retreive a list of data for dropdown lists on Find a Gig page from the DB.
-	*  Use SQL DISTINCT keyword to retrieve unique values for Type of Job and City dropdown list,
+	*  getGigsInfoForFilter method is created to fix issue #194 on Github.
+	
+	*  Retreive a list of data for drop down lists on Find a Gig page from the DB.
+	*  Use SQL DISTINCT keyword to retrieve unique values for Type of Job, Company Name and City dropdown list,
 	*  and send to view page (../views/gigs/index.php in this case).
+	*
+	*  Since issue #194 may have conflict with issue #232 and issue #234, if the fixes of #232 and issue #234
+	*  are needed to merge into this fix, please delete the last elseif branch in the method below.
 	*
 	*  @param  $filterType  name for dropdown list on Find a Gig page
 	*

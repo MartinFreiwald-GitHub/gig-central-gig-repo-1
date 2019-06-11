@@ -55,12 +55,22 @@ class Gig extends CI_Controller
         $this->form_validation->set_message('check_dropdown', 'The {field} must be selected.'); //customer message for droopdown fields
     }#end constructor
 
+	/**
+	*  To fix issue #194 on Github, I added three lines of code in the index() method below 
+	*  to remove duplicates in drop down lists on Find a gig page.
+	*  
+	*  Three lines starts with $data['companyCities'] = ... , $data['names'] = ... 
+	*  and $data['gigOutlines'] = ... .
+	*
+	*  Since issue #194 may have conflict with issue #232 and issue #234, if the fixes of #232 and issue #234
+	*  are needed to merge into this fix, please delete the line starting with $data['gigOutlines'] = ... .
+ 	*/
     public function index()
     {//begin function index
         $data['gigs'] = $this->gig_model->getGigs();
 		
 		/**
-		*  data['companyCities'] and data['names'] store values to be displayed 
+		*  $data['companyCities'], $data['names'] and $data['gigOutlines'] store values to be displayed 
 		*  in dropdown list of Find a Gig page(../views/gigs/index.php in this case).
 		*/
 		$data['companyCities'] = $this->gig_model->getGigsInfoForFilter($filterType = 'companyCities');
